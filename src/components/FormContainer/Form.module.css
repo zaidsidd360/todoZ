@@ -1,0 +1,30 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid white;
+    border-radius: 10px;
+    width: 20%;
+    height: 30vh;
+    padding: 20px;
+}
+
+.form input,
+.form textarea {
+    height: 2rem;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    margin-bottom: 3rem;
+    max-width: 100%;
+    padding-inline: 5px;
+}
+
+.form textarea {
+    height: 5rem;
+}
+
+.form button {
+    margin-right: 0;
+    max-width: 30%;
+}

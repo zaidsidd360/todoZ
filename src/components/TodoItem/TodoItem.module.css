@@ -1,0 +1,82 @@
+.todoItem {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid rgb(69, 69, 69);
+    margin-block: 0.5em;
+    max-width: 100%;
+    min-height: 150px;
+    /* display: block; */
+    /* flex-direction: column; */
+    /* height: auto; */
+}
+
+.todoItemBeingEdited {
+    padding: 5px;
+    border-radius: 5px;
+    margin-block: 0.5em;
+    max-width: 100%;
+    min-height: 150px;
+    border: 1px solid lightblue;
+}
+
+.titleContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.markasdone:hover {
+    background-color: lightgreen;
+}
+
+.markinprogress:hover {
+    background-color: rgb(246, 246, 133);
+}
+
+.delete:hover {
+    background-color: rgb(240, 158, 158);
+}
+
+.edit:hover {
+    background-color: lightblue;
+}
+
+.titleContainer>h2 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.titleContainer>p {
+    margin-block: 1rem;
+}
+
+.activeInput {
+    width: max-content;
+    height: 2rem;
+    font-size: 1.5em;
+    font-weight: bold;
+    padding: 2px;
+    border: 1px solid rgb(52, 52, 52);
+    border-radius: 5px;
+    background-color: rgb(20, 20, 20);
+    color: white;
+}
+
+.activeInputDetails {
+    width: 90%;
+    height: 4rem;
+    margin-top: 0.5rem;
+    background-color: rgb(20, 20, 20);
+    color: white;
+    border-radius: 5px;
+    border: 1px solid rgb(52, 52, 52);
+    font-size: 16px;
+}
+
+.detailsContainer {
+    display: flex;
+}
+
+.buttonsContainer {
+    margin-top: 0.5rem;
+}
