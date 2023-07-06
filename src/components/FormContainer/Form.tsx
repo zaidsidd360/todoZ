@@ -1,9 +1,13 @@
 import { FormEvent, useState } from "react";
-import { ADD_TODO } from "../../reducers/TodoReducer";
+import { ActionsEnum } from "../../reducers/TodoReducer";
+import { IAction } from "../../types/GlobalTypes";
 import styles from "./Form.module.css";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Form = ({ dispatch }: any) => {
+interface IFormProps {
+  dispatch: React.Dispatch<IAction>;
+}
+
+const Form = ({ dispatch }: IFormProps) => {
   const [todoTitle, setTodoTitle] = useState("");
   const [todoDetails, setTodoDetails] = useState("");
 
@@ -15,27 +19,33 @@ const Form = ({ dispatch }: any) => {
       id: Math.floor(Math.random() * 1000 + 1),
       completed: false,
     };
-    dispatch({ type: ADD_TODO, payload: { newTodo } });
+    dispatch({ type: ActionsEnum.ADD_TODO, payload: { newTodo } });
     setTodoTitle("");
     setTodoDetails("");
   };
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
+      <label htmlFor="todoTitle">Title</label>
       <input
+        id="todoTitle"
         onChange={(e) => {
           setTodoTitle(e.target.value);
         }}
         value={todoTitle}
         type="text"
-        placeholder="Title"
+        placeholder="Enter a title"
         required
       />
+      <label htmlFor="todoDetails">Details</label>
       <textarea
+        id="todoDetails"
         onChange={(e) => {
           setTodoDetails(e.target.value);
         }}
         value={todoDetails}
-        placeholder="Details"
+        placeholder="Enter the details"
+        rows={10}
+        maxLength={250}
       />
       <button type="submit">Add todo</button>
     </form>

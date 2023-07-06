@@ -1,16 +1,20 @@
-import styles from "./Todo.module.css";
-import { TodoType } from "../../data/DefaultTodos";
-import { CLEAR_TODOS, RESET_TODOS } from "../../reducers/TodoReducer";
 import TodoItem from "../TodoItem/TodoItem";
+import { ActionsEnum } from "../../reducers/TodoReducer";
+import { IAction, IState, ITodo } from "../../types/GlobalTypes";
+import styles from "./Todo.module.css";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Todo = ({ state, dispatch }: any) => {
+interface ITodoProps {
+  state: IState;
+  dispatch: React.Dispatch<IAction>;
+}
+
+const Todo = ({ state, dispatch }: ITodoProps) => {
   const clearTodos = () => {
-    dispatch({ type: CLEAR_TODOS });
+    dispatch({ type: ActionsEnum.CLEAR_TODOS });
   };
 
   const resetTodos = () => {
-    dispatch({ type: RESET_TODOS });
+    dispatch({ type: ActionsEnum.RESET_TODOS });
   };
 
   return state.todos.length === 0 ? (
@@ -23,14 +27,11 @@ const Todo = ({ state, dispatch }: any) => {
   ) : (
     <>
       <div className={styles.container}>
-        <div className={styles.pseudoContainer}>
-          <ol className={styles.todo}>
-            {state.todos.map((todo: TodoType) => {
-              return <TodoItem todo={todo} dispatch={dispatch} />;
-            })}
-          </ol>
-          <div className={styles.pseudo}></div>
-        </div>
+        <ol className={styles.todo}>
+          {state.todos.map((todo: ITodo) => {
+            return <TodoItem todo={todo} dispatch={dispatch} />;
+          })}
+        </ol>
         <button className={styles.outsideBtn} onClick={clearTodos}>
           Clear Todos
         </button>

@@ -1,35 +1,20 @@
+.container {
+    max-width: 30vw;
+}
+
 .todo {
     border: 1px solid rgb(255, 255, 255);
     border-radius: 15px;
+    border-top-right-radius: 0;
     padding: 2em;
     max-width: 100%;
     height: 50vh;
-    /* height: auto; */
     overflow-y: scroll;
-    margin-bottom: 0;
+    margin-block: 0;
 }
 
-.pseudoContainer {
-    position: relative;
-    width: 80%;
-    border-radius: 15px;
-    overflow: hidden;
-}
-
-.pseudo {
-    /* margin: 1px; */
-    z-index: -20;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    content: '';
-    width: 100%;
-    height: 100px;
-    background-image: linear-gradient(to bottom, transparent, rgb(19, 19, 19));
-}
-
-.todo>p {
-    max-width: 90%;
+.todo::-webkit-scrollbar-track {
+    border-bottom-right-radius: 15px;
 }
 
 button {
