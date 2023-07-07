@@ -116,6 +116,7 @@ const TodoItem = ({ todo, dispatch }: ITodoItemProps) => {
               <button
                 className={styles.edit}
                 onClick={() => updateTodo(todo.id)}
+                disabled={todoTitle === ""}
               >
                 Save
               </button>
