@@ -17,6 +17,10 @@ body {
   box-sizing: border-box;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 /* SCROLLBAR STYLES */
 
 ::-webkit-scrollbar-thumb {

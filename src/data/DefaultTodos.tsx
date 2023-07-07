@@ -1,6 +1,6 @@
 import { ITodo } from "../types/GlobalTypes";
 
-export  const defaultTodos: ITodo[] = [
+const defaultTodos: ITodo[] = [
   {
     title: "Star this project on GitHub.",
     details:
@@ -15,10 +15,12 @@ export  const defaultTodos: ITodo[] = [
     completed: false,
   },
   {
-    title: "I am not in danger, Skyler! I AM the danger!",
+    title: "Negro Y Azul",
     details:
-      "A guy opens his door and gets shot and you think that of me? No. I am the one who knocks!",
+      "La ciudad se llama Duke Nuevo México, el estado Entre la gente mafiosa Su fama se ha propagado Causa de una nueva droga Que los gringos han creado",
     id: 4,
     completed: false,
-  }
+  },
 ];
+
+export default defaultTodos;

@@ -2,7 +2,7 @@ import { useReducer } from "react";
 import Form from "../FormContainer/Form";
 import Todo from "../TodoContainer/Todo";
 import { todoReducer } from "../../reducers/TodoReducer";
-import { defaultState } from "../../data/DefaultState";
+import defaultState from "../../data/DefaultState";
 import styles from "./Container.module.css";
 
 const Container = () => {

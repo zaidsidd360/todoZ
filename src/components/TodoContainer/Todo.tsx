@@ -1,6 +1,6 @@
 import TodoItem from "../TodoItem/TodoItem";
-import { ActionsEnum } from "../../reducers/TodoReducer";
 import { IAction, IState, ITodo } from "../../types/GlobalTypes";
+import ActionsEnum from "../../data/ActionsEnum";
 import styles from "./Todo.module.css";
 
 interface ITodoProps {

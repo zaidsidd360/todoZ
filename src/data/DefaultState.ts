@@ -1,5 +1,7 @@
-import { defaultTodos } from "./DefaultTodos";
+import defaultTodos from "./DefaultTodos";
 
-export const defaultState = {
+const defaultState = {
   todos: defaultTodos,
 }
+
+export default defaultState

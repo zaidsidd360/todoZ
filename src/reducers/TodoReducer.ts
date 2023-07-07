@@ -1,14 +1,6 @@
 import { IAction, IState, ITodo } from "../types/GlobalTypes";
-import { defaultTodos } from "../data/DefaultTodos";
-
-export enum ActionsEnum {
-  CLEAR_TODOS = "CLEAR_TODOS",
-  DELETE_TODO = "DELETE_TODO",
-  COMPLETE_TODO = "COMPLETE_TODO",
-  RESET_TODOS = "RESET_TODOS",
-  ADD_TODO = "ADD_TODO",
-  UPDATE_TODO = "UPDATE_TODO"
-}
+import defaultTodos from "../data/DefaultTodos";
+import ActionsEnum from "../data/ActionsEnum";
 
 export const todoReducer = (state: IState, action: IAction): IState => {
   const {type, payload} = action;

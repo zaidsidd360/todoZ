@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { ActionsEnum } from "../../reducers/TodoReducer";
 import { IAction, ITodo } from "../../types/GlobalTypes";
+import ActionsEnum from "../../data/ActionsEnum";
 import styles from "./TodoItem.module.css";
 
 interface ITodoItemProps {

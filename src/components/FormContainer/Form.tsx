@@ -1,6 +1,6 @@
 import { FormEvent, useState } from "react";
-import { ActionsEnum } from "../../reducers/TodoReducer";
 import { IAction } from "../../types/GlobalTypes";
+import ActionsEnum from "../../data/ActionsEnum";
 import styles from "./Form.module.css";
 
 interface IFormProps {
