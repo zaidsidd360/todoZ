@@ -43,6 +43,7 @@ const TodoItem = ({ todo, dispatch }: ITodoItemProps) => {
 
   const deleteTodo = (id: number) => {
     dispatch({ type: ActionsEnum.DELETE_TODO, payload: { id } });
+    setWantsToDelete(false);
   };
 
   const completeTodo = (id: number) => {
