@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { IAction, ITodo } from "../../types/GlobalTypes";
 import ActionsEnum from "../../data/ActionsEnum";
 import styles from "./TodoItem.module.css";
@@ -8,12 +8,32 @@ interface ITodoItemProps {
   dispatch: React.Dispatch<IAction>;
 }
 
+interface IDeletionPromptProps {
+  setWantsToDelete: React.Dispatch<React.SetStateAction<boolean>>;
+  id: number;
+  deleteTodo: any;
+}
+
+const DeletionPrompt = ({setWantsToDelete, id, deleteTodo}: IDeletionPromptProps) => {
+  return (
+    <>
+      <div className={styles.deletionPromptContainer}>
+        <p>Are you sure?</p>
+        <button onClick={() => deleteTodo(id)}>Yes</button>
+        <button onClick={() => setWantsToDelete(false)}>No</button>
+      </div>
+    </>
+  )
+}
+
 const TodoItem = ({ todo, dispatch }: ITodoItemProps) => {
   // TODO:
-  const [isBeingEdited, setIsBeingEdited] = useState(false);
+  const [isBeingEdited, setIsBeingEdited] = useState<boolean>(false);
   // Lift isBeingEdited to parent and add useClickOutside hook from
   // use-hooks to automatically set isBeingEdited to false when user
   // clicks outside the TodoItem component.
+
+  const [wantsToDelete, setWantsToDelete] = useState<boolean>(false);
 
   const titleRef = useRef<HTMLHeadingElement>(null);
   const detailsRef = useRef<HTMLParagraphElement>(null);
@@ -98,7 +118,7 @@ const TodoItem = ({ todo, dispatch }: ITodoItemProps) => {
           <div className={styles.buttonsContainer}>
             <button
               className={styles.delete}
-              onClick={() => deleteTodo(todo.id)}
+              onClick={() => setWantsToDelete(true)}
               disabled={isBeingEdited}
             >
               Delete
@@ -130,6 +150,7 @@ const TodoItem = ({ todo, dispatch }: ITodoItemProps) => {
               </button>
             )}
           </div>
+          {wantsToDelete ? <DeletionPrompt setWantsToDelete={setWantsToDelete} id={todo.id} deleteTodo={deleteTodo} /> : null}
         </div>
       </li>
     </>
