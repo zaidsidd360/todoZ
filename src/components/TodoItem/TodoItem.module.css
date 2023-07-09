@@ -95,4 +95,10 @@
 .deletionPromptContainer {
     background-color: lightcoral;
     display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    max-height: min-content;
+    border-radius: 5px;
+    color: black;
+    margin-top: 1rem;
 }

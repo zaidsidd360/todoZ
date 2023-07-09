@@ -11,10 +11,14 @@ interface ITodoItemProps {
 interface IDeletionPromptProps {
   setWantsToDelete: React.Dispatch<React.SetStateAction<boolean>>;
   id: number;
-  deleteTodo: any;
+  deleteTodo: (id: number) => void;
 }
 
-const DeletionPrompt = ({setWantsToDelete, id, deleteTodo}: IDeletionPromptProps) => {
+const DeletionPrompt = ({
+  setWantsToDelete,
+  id,
+  deleteTodo,
+}: IDeletionPromptProps) => {
   return (
     <>
       <div className={styles.deletionPromptContainer}>
@@ -23,8 +27,8 @@ const DeletionPrompt = ({setWantsToDelete, id, deleteTodo}: IDeletionPromptProps
         <button onClick={() => setWantsToDelete(false)}>No</button>
       </div>
     </>
-  )
-}
+  );
+};
 
 const TodoItem = ({ todo, dispatch }: ITodoItemProps) => {
   // TODO:
@@ -129,7 +133,7 @@ const TodoItem = ({ todo, dispatch }: ITodoItemProps) => {
                 !todo.completed ? styles.markasdone : styles.markinprogress
               }
               onClick={() => completeTodo(todo.id)}
-              disabled={isBeingEdited}
+              disabled={isBeingEdited || wantsToDelete}
             >
               {todo.completed ? "Mark as in-progress" : "Mark as done"}
             </button>
@@ -145,13 +149,19 @@ const TodoItem = ({ todo, dispatch }: ITodoItemProps) => {
               <button
                 className={styles.edit}
                 onClick={() => setIsBeingEdited(!isBeingEdited)}
-                disabled={todo.completed}
+                disabled={todo.completed || wantsToDelete}
               >
                 Edit
               </button>
             )}
           </div>
-          {wantsToDelete ? <DeletionPrompt setWantsToDelete={setWantsToDelete} id={todo.id} deleteTodo={deleteTodo} /> : null}
+          {wantsToDelete ? (
+            <DeletionPrompt
+              setWantsToDelete={setWantsToDelete}
+              id={todo.id}
+              deleteTodo={deleteTodo}
+            />
+          ) : null}
         </div>
       </li>
     </>

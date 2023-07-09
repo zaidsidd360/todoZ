@@ -8,8 +8,8 @@
     border-radius: 15px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-    width: 20%;
-    height: auto;
+    width: 30%;
+    /* height: 40vh; */
     padding: 20px;
 }
 
@@ -38,7 +38,7 @@
 
 .form button {
     margin-right: 0;
-    max-width: 30%;
+    /* max-width: 30%; */
     font-size: 1rem;
     border-radius: 30px;
 }
