@@ -47,7 +47,7 @@ const Form = ({ dispatch }: IFormProps) => {
         rows={10}
         maxLength={250}
       />
-      <button type="submit">Add todo</button>
+      <button type="submit">Add task</button>
     </form>
   );
 };

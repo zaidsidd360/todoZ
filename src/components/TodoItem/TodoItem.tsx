@@ -3,11 +3,6 @@ import { IAction, ITodo } from "../../types/GlobalTypes";
 import ActionsEnum from "../../data/ActionsEnum";
 import styles from "./TodoItem.module.css";
 
-interface ITodoItemProps {
-  todo: ITodo;
-  dispatch: React.Dispatch<IAction>;
-}
-
 interface IDeletionPromptProps {
   setWantsToDelete: React.Dispatch<React.SetStateAction<boolean>>;
   id: number;
@@ -29,6 +24,11 @@ const DeletionPrompt = ({
     </>
   );
 };
+
+interface ITodoItemProps {
+  todo: ITodo;
+  dispatch: React.Dispatch<IAction>;
+}
 
 const TodoItem = ({ todo, dispatch }: ITodoItemProps) => {
   // TODO:

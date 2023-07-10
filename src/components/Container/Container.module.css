@@ -11,8 +11,35 @@
 
 .innerContainer {
     width: 70%;
+    height: auto;
     /* background-color: red; */
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    /* background-color: rgb(220, 144, 144); */
+    overflow: hidden;
+}
+
+@media (max-width: 800px) {
+    .innerContainer {
+        width: 80%;
+    }
+}
+
+@media (max-width: 700px) {
+    .innerContainer {
+        width: 100%;
+        margin-inline: 1rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        height: 100%;
+        padding-top: 4.5rem;
+    }
+
+    .innerContainer {
+        margin: 0;
+    }
 }
