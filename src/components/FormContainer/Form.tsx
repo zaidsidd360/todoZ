@@ -8,8 +8,8 @@ interface IFormProps {
 }
 
 const Form = ({ dispatch }: IFormProps) => {
-  const [todoTitle, setTodoTitle] = useState("");
-  const [todoDetails, setTodoDetails] = useState("");
+  const [todoTitle, setTodoTitle] = useState<string>("");
+  const [todoDetails, setTodoDetails] = useState<string>("");
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();

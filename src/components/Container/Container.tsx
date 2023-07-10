@@ -14,8 +14,10 @@ const Container = () => {
 
   return (
     <div className={styles.container}>
-      <Todo state={state} dispatch={dispatch} />
-      <Form dispatch={dispatch} />
+      <div className={styles.innerContainer}>
+        <Todo state={state} dispatch={dispatch} />
+        <Form dispatch={dispatch} />
+      </div>
     </div>
   );
 };

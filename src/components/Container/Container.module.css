@@ -1,10 +1,18 @@
 .container {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     background-color: rgb(30, 27, 27);
     color: white;
     height: 100vh;
-    padding-top: 13rem;
+    /* padding-top: 13rem; */
     box-sizing: border-box;
+}
+
+.innerContainer {
+    width: 70%;
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
 }
