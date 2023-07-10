@@ -11,6 +11,7 @@ const Container = () => {
     todoReducer,
     defaultState
   );
+
   return (
     <div className={styles.container}>
       <Todo state={state} dispatch={dispatch} />
