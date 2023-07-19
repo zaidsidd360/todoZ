@@ -2,8 +2,9 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: rgb(20, 20, 20);
-    border: 1px solid white;
+    /* background-color: rgb(20, 20, 20); */
+    background-color: white;
+    border: 1px solid rgb(181, 181, 181);
     border-left: none;
     border-radius: 15px;
     border-top-left-radius: 0;
@@ -22,6 +23,7 @@
     max-width: 100%;
     padding-inline: 5px;
     font-size: 1rem;
+    background-color: rgb(233, 233, 233);
 }
 
 .form textarea {
@@ -33,6 +35,7 @@
     outline: none;
     border: none;
     font-size: 1rem;
+    background-color: rgb(233, 233, 233);
     /* max-width: 100%; */
 }
 

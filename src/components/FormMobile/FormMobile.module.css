@@ -7,16 +7,16 @@
     justify-content: center;
     align-items: center;
     z-index: 50;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 .formMobile {
     display: flex;
     flex-direction: column;
-    background-color: black;
+    background-color: rgb(255, 255, 255);
     padding: 1rem;
     border-radius: 10px;
-    border: 1px solid white;
+    border: 1px solid rgb(81, 81, 81);
 
 }
 
@@ -29,6 +29,7 @@
     max-width: 100%;
     padding-inline: 5px;
     font-size: 1rem;
+    background-color: rgb(233, 233, 233);
 }
 
 .formMobile textarea {
@@ -40,5 +41,6 @@
     outline: none;
     border: none;
     font-size: 1rem;
+    background-color: rgb(233, 233, 233);
     /* max-width: 100%; */
 }
