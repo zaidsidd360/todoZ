@@ -1,0 +1,44 @@
+.modalBackdrop {
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 50;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.formMobile {
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    padding: 1rem;
+    border-radius: 10px;
+    border: 1px solid white;
+
+}
+
+.formMobile input {
+    height: 2rem;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    margin-bottom: 2rem;
+    max-width: 100%;
+    padding-inline: 5px;
+    font-size: 1rem;
+}
+
+.formMobile textarea {
+    margin-bottom: 2rem;
+    border-radius: 5px;
+    resize: vertical;
+    max-height: 6rem;
+    padding: 5px 5px;
+    outline: none;
+    border: none;
+    font-size: 1rem;
+    /* max-width: 100%; */
+}

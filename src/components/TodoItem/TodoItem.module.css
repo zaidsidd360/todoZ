@@ -102,3 +102,9 @@
     color: black;
     margin-top: 1rem;
 }
+
+@media (max-width: 600px) {
+    .todoItem {
+        width: 90vw;
+    }
+}

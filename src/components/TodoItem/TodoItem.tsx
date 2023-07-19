@@ -123,7 +123,7 @@ const TodoItem = ({ todo, dispatch }: ITodoItemProps) => {
           <div className={styles.buttonsContainer}>
             <button
               className={styles.delete}
-              onClick={() => setWantsToDelete(true)}
+              onClick={() => setWantsToDelete(!wantsToDelete)}
               disabled={isBeingEdited}
             >
               Delete

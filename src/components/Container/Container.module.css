@@ -11,13 +11,20 @@
 
 .innerContainer {
     width: 70%;
-    height: auto;
+    /* height: 100vh; */
     /* background-color: red; */
     display: flex;
     justify-content: center;
     align-items: flex-start;
     /* background-color: rgb(220, 144, 144); */
     overflow: hidden;
+}
+
+.mobBtnContainer {
+    display: flex;
+    position: absolute;
+    top: 2.5vh;
+    right: 0.3em;
 }
 
 @media (max-width: 800px) {
@@ -35,11 +42,11 @@
 
 @media (max-width: 600px) {
     .container {
-        height: 100%;
-        padding-top: 4.5rem;
+        height: 90vh;
     }
 
     .innerContainer {
         margin: 0;
+        background-color: black;
     }
 }
