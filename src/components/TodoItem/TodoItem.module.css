@@ -121,6 +121,29 @@
     transform: rotate(45deg);
 }
 
+.todoItemBeingDeleted {
+    animation: fallAway 1s forwards;
+    transform-origin: top left;
+}
+
+@keyframes fallAway {
+    0% {
+        transform: rotateZ(0deg);
+        top: 0;
+        opacity: 1;
+    }
+
+    25% {
+        transform: rotateZ(15deg);
+    }
+
+    100% {
+        top: 300px;
+        transform: rotateZ(5deg);
+        opacity: 0;
+    }
+}
+
 @media (max-width: 600px) {
     .todoItem {
         width: 90vw;

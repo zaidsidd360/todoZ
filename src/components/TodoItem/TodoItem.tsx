@@ -38,6 +38,8 @@ const TodoItem = ({ todo, dispatch }: ITodoItemProps) => {
   // clicks outside the TodoItem component.
 
   const [wantsToDelete, setWantsToDelete] = useState<boolean>(false);
+  const [hasConfirmedDeletion, setHasConfirmedDeletion] =
+    useState<boolean>(false);
 
   const titleRef = useRef<HTMLHeadingElement>(null);
   const detailsRef = useRef<HTMLParagraphElement>(null);
@@ -46,7 +48,11 @@ const TodoItem = ({ todo, dispatch }: ITodoItemProps) => {
   const [todoDetails, setTodoDetails] = useState(" ");
 
   const deleteTodo = (id: number) => {
-    dispatch({ type: ActionsEnum.DELETE_TODO, payload: { id } });
+    setHasConfirmedDeletion(true);
+    setTimeout(() => {
+      dispatch({ type: ActionsEnum.DELETE_TODO, payload: { id } });
+      setHasConfirmedDeletion(false);
+    }, 1000);
     setWantsToDelete(false);
   };
 
@@ -71,7 +77,10 @@ const TodoItem = ({ todo, dispatch }: ITodoItemProps) => {
 
   return (
     <>
-      <li key={todo.id}>
+      <li
+        key={todo.id}
+        className={hasConfirmedDeletion ? styles.todoItemBeingDeleted : ""}
+      >
         <div
           className={
             isBeingEdited ? styles.todoItemBeingEdited : styles.todoItem
