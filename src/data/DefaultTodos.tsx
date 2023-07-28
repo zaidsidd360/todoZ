@@ -2,7 +2,7 @@ import { ITodo } from "../types/GlobalTypes";
 
 const defaultTodos: ITodo[] = [
   {
-    title: "Star this project on GitHub.",
+    title: "Star this project on Github.",
     details:
       "Check out the source code for this project and make sure you leave a star!",
     id: 1,

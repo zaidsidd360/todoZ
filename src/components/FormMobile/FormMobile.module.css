@@ -29,7 +29,7 @@
     max-width: 100%;
     padding-inline: 5px;
     font-size: 1rem;
-    background-color: rgb(233, 233, 233);
+    background-color: rgb(239, 249, 251);
 }
 
 .formMobile textarea {
@@ -41,6 +41,6 @@
     outline: none;
     border: none;
     font-size: 1rem;
-    background-color: rgb(233, 233, 233);
+    background-color: rgb(239, 249, 251);
     /* max-width: 100%; */
 }

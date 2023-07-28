@@ -107,7 +107,7 @@ const TodoItem = ({ todo, dispatch }: ITodoItemProps) => {
           ) : (
             <>
               <div className={styles.titleContainer}>
-                <h2 ref={titleRef}>{todo.title}</h2>
+                <h2 ref={titleRef}>{todo.title} </h2>
                 <span>{todo.completed ? "✅" : "⚡"}</span>
               </div>
             </>
@@ -162,6 +162,11 @@ const TodoItem = ({ todo, dispatch }: ITodoItemProps) => {
               >
                 Edit
               </button>
+            )}
+            {todo.id === 1 && (
+              <a id="gh-link" href="https://github.com/zaidsidd360/todoZ">
+                <button>Repo</button>
+              </a>
             )}
           </div>
           {wantsToDelete ? (

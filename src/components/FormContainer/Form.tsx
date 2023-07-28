@@ -45,7 +45,7 @@ const Form = ({ dispatch }: IFormProps) => {
         value={todoDetails}
         placeholder="Enter the details"
         rows={10}
-        maxLength={250}
+        maxLength={350}
       />
       <button type="submit">Add task</button>
     </form>
