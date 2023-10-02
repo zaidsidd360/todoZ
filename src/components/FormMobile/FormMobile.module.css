@@ -7,7 +7,7 @@
     justify-content: center;
     align-items: center;
     z-index: 50;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 .formMobile {
@@ -29,7 +29,7 @@
     max-width: 100%;
     padding-inline: 5px;
     font-size: 1rem;
-    background-color: rgb(239, 249, 251);
+    background-color: rgb(232, 232, 232);
 }
 
 .formMobile textarea {
@@ -41,6 +41,5 @@
     outline: none;
     border: none;
     font-size: 1rem;
-    background-color: rgb(239, 249, 251);
-    /* max-width: 100%; */
+    background-color: rgb(232, 232, 232);
 }

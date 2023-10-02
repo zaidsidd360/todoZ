@@ -88,9 +88,9 @@ const TodoItem = ({ todo, dispatch }: ITodoItemProps) => {
           style={
             todo.completed
               ? {
-                  backgroundColor: "lightgreen",
-                  color: "gray",
-                }
+                backgroundColor: "lightgreen",
+                color: "gray",
+              }
               : {}
           }
         >
@@ -169,13 +169,13 @@ const TodoItem = ({ todo, dispatch }: ITodoItemProps) => {
               </a>
             )}
           </div>
-          {wantsToDelete ? (
+          {wantsToDelete && (
             <DeletionPrompt
               setWantsToDelete={setWantsToDelete}
               id={todo.id}
               deleteTodo={deleteTodo}
             />
-          ) : null}
+          )}
         </div>
       </li>
     </>

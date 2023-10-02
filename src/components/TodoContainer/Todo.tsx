@@ -29,7 +29,7 @@ const Todo = ({ state, dispatch }: ITodoProps) => {
       <div className={styles.container}>
         <ol className={styles.todo}>
           {state.todos.map((todo: ITodo) => {
-            return <TodoItem todo={todo} dispatch={dispatch} />;
+            return <TodoItem key={todo.id} todo={todo} dispatch={dispatch} />;
           })}
         </ol>
         <button className={styles.outsideBtn} onClick={clearTodos}>

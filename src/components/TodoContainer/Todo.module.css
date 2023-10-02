@@ -3,7 +3,6 @@
 }
 
 .todo {
-    /* background-color: rgb(20, 20, 20); */
     background-color: white;
     border: 1px solid rgb(181, 181, 181);
     border-radius: 15px;
@@ -31,7 +30,6 @@ button {
 
 .outsideBtn {
     margin: 0.5em;
-    /* margin-bottom: 0.9em; */
 }
 
 @media (max-width: 600px) {

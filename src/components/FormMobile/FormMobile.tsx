@@ -4,7 +4,7 @@ import styles from "./FormMobile.module.css";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import { useClickOutside } from "@react-hooks-library/core";
-import { IAction } from "../../types/GlobalTypes";
+import { IAction, ITodo } from "../../types/GlobalTypes";
 
 interface IFormMobileProps {
   dispatch: React.Dispatch<IAction>;
@@ -12,20 +12,31 @@ interface IFormMobileProps {
 }
 
 const FormMobile = ({ dispatch, setIsModalOpen }: IFormMobileProps) => {
-  const [todoTitle, setTodoTitle] = useState<string>("");
-  const [todoDetails, setTodoDetails] = useState<string>("");
+
+  const defaultTodo = {
+    title: "",
+    details: "",
+    id: -1,
+    completed: false
+  }
+
+  const [todo, setTodo] = useState<ITodo>(defaultTodo)
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setTodo({
+      ...todo,
+      [e.target.name]: e.target.value
+    })
+  }
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     const newTodo = {
-      title: todoTitle,
-      details: todoDetails,
+      ...todo,
       id: Math.floor(Math.random() * 1000 + 1),
-      completed: false,
     };
     dispatch({ type: ActionsEnum.ADD_TODO, payload: { newTodo } });
-    setTodoTitle("");
-    setTodoDetails("");
+    setTodo(defaultTodo)
     setIsModalOpen(false);
   };
 
@@ -34,6 +45,7 @@ const FormMobile = ({ dispatch, setIsModalOpen }: IFormMobileProps) => {
   useClickOutside(formRef, () => {
     setIsModalOpen(false);
   });
+
   return (
     <>
       <div className={styles.modalBackdrop}>
@@ -45,10 +57,9 @@ const FormMobile = ({ dispatch, setIsModalOpen }: IFormMobileProps) => {
           <label htmlFor="todoTitle">Title</label>
           <input
             id="todoTitle"
-            onChange={(e) => {
-              setTodoTitle(e.target.value);
-            }}
-            value={todoTitle}
+            onChange={handleChange}
+            value={todo.title}
+            name="title"
             type="text"
             placeholder="Enter a title"
             required
@@ -56,10 +67,9 @@ const FormMobile = ({ dispatch, setIsModalOpen }: IFormMobileProps) => {
           <label htmlFor="todoDetails">Details</label>
           <textarea
             id="todoDetails"
-            onChange={(e) => {
-              setTodoDetails(e.target.value);
-            }}
-            value={todoDetails}
+            onChange={handleChange}
+            name="details"
+            value={todo.details}
             placeholder="Enter the details"
             rows={10}
             maxLength={250}

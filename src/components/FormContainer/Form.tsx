@@ -1,5 +1,5 @@
 import { FormEvent, useState } from "react";
-import { IAction } from "../../types/GlobalTypes";
+import { IAction, ITodo } from "../../types/GlobalTypes";
 import ActionsEnum from "../../data/ActionsEnum";
 import styles from "./Form.module.css";
 
@@ -8,41 +8,51 @@ interface IFormProps {
 }
 
 const Form = ({ dispatch }: IFormProps) => {
-  const [todoTitle, setTodoTitle] = useState<string>("");
-  const [todoDetails, setTodoDetails] = useState<string>("");
+
+  const defaultTodo = {
+    title: "",
+    details: "",
+    id: -1,
+    completed: false
+  }
+
+  const [todo, setTodo] = useState<ITodo>(defaultTodo)
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setTodo({
+      ...todo,
+      [e.target.name]: e.target.value
+    })
+  }
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     const newTodo = {
-      title: todoTitle,
-      details: todoDetails,
-      id: Math.floor(Math.random() * 1000 + 1),
-      completed: false,
+      ...todo,
+      id: Math.floor(Math.random() * 1000 + 1)
     };
     dispatch({ type: ActionsEnum.ADD_TODO, payload: { newTodo } });
-    setTodoTitle("");
-    setTodoDetails("");
+    setTodo(defaultTodo)
   };
+
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
-      <label htmlFor="todoTitle">Title</label>
+      <label htmlFor="title">Title</label>
       <input
         id="todoTitle"
-        onChange={(e) => {
-          setTodoTitle(e.target.value);
-        }}
-        value={todoTitle}
+        name="title"
+        onChange={handleChange}
+        value={todo.title}
         type="text"
         placeholder="Enter a title"
         required
       />
-      <label htmlFor="todoDetails">Details</label>
+      <label htmlFor="details">Details</label>
       <textarea
         id="todoDetails"
-        onChange={(e) => {
-          setTodoDetails(e.target.value);
-        }}
-        value={todoDetails}
+        onChange={handleChange}
+        name="details"
+        value={todo.details}
         placeholder="Enter the details"
         rows={10}
         maxLength={350}
